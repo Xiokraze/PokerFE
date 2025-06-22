@@ -1,0 +1,24 @@
+.splash-page {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-text);
+}
+
+.splash-page h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
