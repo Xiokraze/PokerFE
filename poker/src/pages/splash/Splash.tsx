@@ -10,6 +10,7 @@ export default function SplashPage() {
   const animatedChips = [
     { color: 'white', value: 1 },
     { color: 'red', value: 5 },
+    { color: 'blue', value: 10 },
     { color: 'green', value: 25 },
     { color: 'black', value: 100 },
     { color: 'purple', value: 500 },
@@ -18,9 +19,11 @@ export default function SplashPage() {
 
   useEffect(() => {
     setShowAnimation(true);
-    const timeout = setTimeout(() => setShowAnimation(false), 3000); // cleanup
+    const animationTimeout = setTimeout(() => setShowAnimation(false), 5000); // cleanup
+    const animationCompleteTimeout = setTimeout(() => setAnimationComplete(true), 5000); // cleanup
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(animationTimeout);
+      clearTimeout(animationCompleteTimeout);
     };
   }, []);
 
@@ -37,7 +40,6 @@ export default function SplashPage() {
           </div>
         </>
       )}
-
       {showAnimation &&
         animatedChips.map((chip, index) => (
           <div
@@ -45,9 +47,8 @@ export default function SplashPage() {
             className={styles.bounceRollAnimation}
             style={{
               animationDelay: `${index * 0.3}s`,
-              top: `${40 + index * 10}%`,
+              top: `${70 + index * 80}px`,
             }}
-            onAnimationEnd={() => setAnimationComplete(true)}
           >
             <PokerChip color={chip.color} value={chip.value} />
           </div>
