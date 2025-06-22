@@ -1,0 +1,64 @@
+.pokerChip {
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pokerChip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: 1;
+  background: repeating-conic-gradient(var(--poker-chip-accent) 0deg 5deg, transparent 5deg 15deg);
+  mask: radial-gradient(circle at center, transparent 60%, black 70%);
+}
+
+.pokerChip::after {
+  content: '';
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+.chipCenter {
+  /* z-index: 3; */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+  height: 100%; /* make sure it fills container */
+  width: 100%; /* optional but good for full centering */
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+  padding: 0 8px;
+  color: var(--poker-chip-accent);
+  text-shadow: 1px 1px 0 #00000066, -1px -1px 0 #ffffff22;
+}
+
+/* Color variants */
+.red {
+  background: #7a0000;
+}
+.blue {
+  background: #003399;
+}
+.green {
+  background: #0d4f2a;
+}
+.black {
+  background: #222;
+}
+.purple {
+  background: #5e2ca5;
+}
+.gold {
+  background: #d4af37;
+}

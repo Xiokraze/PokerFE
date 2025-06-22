@@ -1,0 +1,15 @@
+.toggleTheme {
+  width: auto;
+  height: auto;
+  border: 3px solid blue;
+}
+
+.themeSVG {
+  height: auto;
+  width: auto;
+}
+
+.togglePointer {
+  cursor: pointer;
+  width: fit-content;
+}

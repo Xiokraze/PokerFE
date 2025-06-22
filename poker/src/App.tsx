@@ -1,13 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
 import Splash from './pages/splash/Splash';
 import FiveCardStudPage from './pages/fiveCardStud/FiveCardStud';
+import ProjectLabel from './components/labels/project/ProjectLabel';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Splash />} />
-      <Route path="/five-card-stud" element={<FiveCardStudPage />} />
-    </Routes>
+    <>
+      <ProjectLabel />
+      <Routes>
+        <Route path="/" element={<Splash />} />
+        <Route path="/fiveCardStud" element={<FiveCardStudPage />} />
+      </Routes>
+    </>
   );
 }
 

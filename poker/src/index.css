@@ -9,19 +9,28 @@
 
 /* ====== 2. Theme Variables ====== */
 :root {
-  --color-bg: #f9f9f9;
-  --color-text: #222;
-  --color-accent: #d84315; /* poker chip red */
+  --primary-dark: black;
+  --secondary-dark: #2b2929;
+  --color-text: white;
+  --poker-chip-red: #7a0000;
+  --felt-color: #35654d; /*Poker felt green */
   --color-muted: #aaa;
   --font-body: 'Inter', system-ui, sans-serif;
+  --poker-chip-accent: black;
 
-  --felt-color: #35654d;
+  --background: var(--felt-color);
+
+  /* Project Label */
+  --ProjectLabel: white;
+  --ProjectLabelFlicker: var(--poker-chip-red);
+  --ProjectFilterShadow1: white;
+  --ProjectFilterShadow2: var(--poker-chip-red);
 
   /* Card UI */
-  --card-border: 1px solid rgba(0, 0, 0, 0.1);
+  /* --card-border: 1px solid rgba(0, 0, 0, 0.1);
   --card-bg: #fff;
   --card-radius: 12px;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */
 }
 
 /* ====== 3. Dark Mode (optional for later) ====== */
@@ -38,8 +47,10 @@
 
 /* ====== 4. Global Base Styles ====== */
 body {
+  min-width: 320px !important; /*Smallest device width in browser dev tools (iphone 5/SE)*/
   font-family: var(--font-body);
-  background: var(--felt-color) var(--felt-bg);
+  background: var(--background);
+  background-color: var(--background);
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
@@ -82,4 +93,19 @@ a:hover {
 }
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.light {
+  --color-text: var(--felt-color);
+  --color-muted: #aaa;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --poker-chip-accent: white;
+
+  --background: snow;
+
+  /* Project Label */
+  --ProjectLabel: white;
+  --ProjectLabelFlicker: var(--poker-chip-red);
+  --ProjectFilterShadow1: white;
+  --ProjectFilterShadow2: var(--poker-chip-red);
 }
