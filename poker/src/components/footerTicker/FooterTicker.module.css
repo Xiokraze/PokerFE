@@ -1,0 +1,48 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--primary-dark);
+  color: var(--secondary-dark);
+  padding: 0.5rem 1rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  overflow: hidden;
+}
+
+.ticker {
+  width: 100vw; /* visible viewport width */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tickerTrack {
+  display: flex;
+  width: 200%;
+  animation: scrollLeft 15s linear infinite;
+  /* Pause animation on hover */
+  animation-play-state: running;
+}
+
+.ticker:hover .tickerTrack {
+  animation-play-state: paused;
+  /* Allow text selection on hover */
+  user-select: text;
+}
+
+.tickerText {
+  flex: 0 0 50%; /* each span takes half the width */
+  padding-right: 2rem;
+  color: red;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

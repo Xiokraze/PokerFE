@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import GameOption from '../../components/gameOption/GameOption';
 import { PokerChip } from '../../components/pokerChip/PokerChip';
 import styles from './Splash.module.css';
+import PageHeader from '../../components/labels/pageHeader/PageHeader';
 
-export default function SplashPage() {
+const SplashPage = () => {
   const [showAnimation, setShowAnimation] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
@@ -31,7 +32,7 @@ export default function SplashPage() {
     <div className="splash-page">
       {animationComplete && (
         <>
-          <p className="subtitle">Choose your game</p>
+          <PageHeader title="Choose Your Game" />
           <div className="game-grid">
             <GameOption title="Five Card Stud" playable path="/five-card-stud" />
             <GameOption title="Texas Hold'em" />
@@ -55,4 +56,6 @@ export default function SplashPage() {
         ))}
     </div>
   );
-}
+};
+
+export default SplashPage;
