@@ -22,3 +22,47 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+@keyframes bounceRollAway {
+  0% {
+    transform: translateX(-150%) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    transform: translateX(0%) rotate(15deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translateX(-5%) rotate(-10deg);
+  }
+
+  40% {
+    transform: translateX(0%) rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(0%) rotate(0deg); /* pause briefly */
+  }
+
+  100% {
+    transform: translateX(120vw) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.bounceRollAnimationDiv {
+  border: 1px solid blue;
+}
+
+.bounceRollAnimation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+  animation: bounceRollAway 2.5s ease-in-out forwards;
+  pointer-events: none;
+  z-index: 999;
+  border: 1px solid red;
+}

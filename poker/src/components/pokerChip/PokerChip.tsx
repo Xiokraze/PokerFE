@@ -3,7 +3,7 @@ import styles from './PokerChip.module.css';
 
 interface PokerChipProps {
   widthAndHeight?: number;
-  color?: 'red' | 'blue' | 'green' | 'black' | 'purple' | 'gold';
+  color?: 'red' | 'blue' | 'green' | 'black' | 'purple' | 'gold' | 'white' | 'yellow';
   value?: number | string;
   text?: string;
   onClick?: React.MouseEventHandler<HTMLDivElement>; // optional onClick handler
