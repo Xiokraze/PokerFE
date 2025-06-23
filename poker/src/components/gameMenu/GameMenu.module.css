@@ -92,3 +92,20 @@
     transform: translateX(0) rotate(0);
   }
 }
+
+@keyframes dealPop {
+  0% {
+    transform: translateY(0) scale(1) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+.chosenCard {
+  animation: dealPop 0.5s ease forwards;
+  z-index: 10; /* make sure it’s on top while animating */
+}
