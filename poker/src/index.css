@@ -28,24 +28,8 @@
   --ProjectFilterShadow1: white;
   --ProjectFilterShadow2: var(--poker-chip-red);
 
-  /* Card UI */
-  /* --card-border: 1px solid rgba(0, 0, 0, 0.1);
-  --card-bg: #fff;
-  --card-radius: 12px;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */
+  --MenuBackground: var(--secondary-dark);
 }
-
-/* ====== 3. Dark Mode (optional for later) ====== */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-text: #f9f9f9;
-    --color-accent: #ff6f61;
-    --card-bg: #1e1e1e;
-    --card-border: 1px solid rgba(255, 255, 255, 0.1);
-    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  }
-} */
 
 /* ====== 4. Global Base Styles ====== */
 body {
@@ -55,13 +39,6 @@ body {
   background-repeat: repeat;
   background-size: auto;
 
-  /* background: var(--background);
-  background-color: var(--background);
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center;
-  background-blend-mode: multiply; */
-
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
@@ -69,38 +46,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ====== 5. Typography Defaults ====== */
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-/* ====== 6. Utility Classes ====== */
-.text-center {
-  text-align: center;
-}
-.mt-2 {
-  margin-top: 0.5rem;
-}
-.mt-4 {
-  margin-top: 1rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
+/* Light Theme */
 .light {
   --color-text: black;
   --color-muted: #aaa;
@@ -114,4 +60,6 @@ a:hover {
   --ProjectLabelFlicker: var(--poker-chip-red);
   --ProjectFilterShadow1: white;
   --ProjectFilterShadow2: var(--poker-chip-red);
+
+  --MenuBackground: snow;
 }
