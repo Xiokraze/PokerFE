@@ -9,6 +9,8 @@
 
 /* ====== 2. Theme Variables ====== */
 :root {
+  /* Background */
+  --felt-bg: url('./assets/pokerfelt.jpg');
   --primary-dark: black;
   --secondary-dark: #2b2929;
   --color-text: white;
@@ -49,12 +51,16 @@
 body {
   min-width: 320px !important; /*Smallest device width in browser dev tools (iphone 5/SE)*/
   font-family: var(--font-body);
-  background: var(--background);
+  background-image: var(--felt-bg);
+  background-repeat: repeat;
+  background-size: auto;
+
+  /* background: var(--background);
   background-color: var(--background);
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
-  background-blend-mode: multiply;
+  background-blend-mode: multiply; */
 
   color: var(--color-text);
   line-height: 1.6;
@@ -96,7 +102,7 @@ a:hover {
 }
 
 .light {
-  --color-text: var(--felt-color);
+  --color-text: black;
   --color-muted: #aaa;
   --font-body: 'Inter', system-ui, sans-serif;
   --poker-chip-accent: white;
