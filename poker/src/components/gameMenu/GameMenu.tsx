@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './GameMenu.module.css';
 import { useNavigate } from 'react-router-dom';
-import PlayingCard from '../playingCard/PlayingCard';
 import { games } from './games';
+import CardOption from '../playingCard/CardOption';
 
 const GameMenu: React.FC = () => {
   const navigate = useNavigate();
@@ -24,27 +24,19 @@ const GameMenu: React.FC = () => {
           { id, displayName, description, cardCode, badgeText, badgeColor, enabled, routePath },
           index,
         ) => (
-          <div
+          <CardOption
             key={id}
-            className={`${styles.cardContainer} ${enabled ? '' : styles.disabled} ${
-              clickedId === id ? styles.chosenCard : ''
-            }`}
+            id={id}
+            cardCode={cardCode}
+            badgeText={badgeText}
+            badgeColor={badgeColor}
+            displayText={displayName}
+            subText={description}
+            disabled={!enabled}
+            selected={clickedId === id}
             onClick={() => handleClick(id, routePath, enabled)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (enabled && (e.key === 'Enter' || e.key === ' '))
-                handleClick(id, routePath, enabled);
-            }}
-            aria-disabled={!enabled}
-            style={{ '--animation-delay': `${index * 200}ms` } as React.CSSProperties} // keep slide deal stagger
-          >
-            <PlayingCard code={cardCode} badgeText={badgeText} badgeColor={badgeColor} />
-            <div className={styles.text}>
-              <h3>{displayName}</h3>
-              <p>{description}</p>
-            </div>
-          </div>
+            animationDelay={index * 200}
+          />
         ),
       )}
     </div>

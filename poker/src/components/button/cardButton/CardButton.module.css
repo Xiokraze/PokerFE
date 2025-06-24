@@ -1,0 +1,58 @@
+.cardButton {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cardButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cardButton:hover:not(:disabled) {
+  transform: translateY(-3px);
+}
+
+.cardWrapper {
+  max-width: 120px; /* or your desired card width */
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.cardWrapper > img,
+.cardWrapper > svg {
+  width: auto;
+  height: auto;
+  display: block; /* prevents inline gap */
+}
+
+/* Top overlay - label */
+.topOverlay {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--secondary-dark);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Bottom overlay - primary action */
+.bottomOverlay {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+  pointer-events: none;
+}

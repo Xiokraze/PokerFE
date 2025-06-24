@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './PlayingCard.module.css';
+import ThemeContext from '../context/ThemeContext';
 
 type PlayingCardProps = {
   code?: string; // e.g. "4C"
@@ -26,29 +27,35 @@ const rankMap: Record<string, string> = {
 };
 
 const getCardFilename = (code: string): string => {
-  if (!code || code.length < 2) return 'back.png';
+  if (!code || code.length < 2) return 'back-red.png';
 
   const rank = code.slice(0, code.length - 1);
   const suit = code.slice(-1);
 
   const suitName = suitMap[suit.toUpperCase()];
-  if (!suitName) return 'back.png';
+  if (!suitName) return 'back-red.png';
 
   const rankName = rankMap[rank.toUpperCase()] || rank;
 
-  if (!rankName.match(/^(?:[2-9]|10|jack|queen|king|1)$/i)) return 'back.png';
+  if (!rankName.match(/^(?:[2-9]|10|jack|queen|king|1)$/i)) return 'back-red.png';
 
   return `${suitName}_${rankName.toLowerCase()}.png`;
 };
 
 const PlayingCard: React.FC<PlayingCardProps> = ({
-  code = 'back',
+  code = 'back-red',
   faceDown = false,
   badgeText,
   badgeColor = '#f00', // default red
   width = 100,
 }) => {
-  const filename = faceDown ? 'back.png' : getCardFilename(code);
+  const themeCtx = useContext(ThemeContext);
+
+  const filename = faceDown
+    ? themeCtx.isDarkTheme()
+      ? 'back-red.png'
+      : 'back-blue.png'
+    : getCardFilename(code);
 
   const img1x = `/png/1x/${filename}`;
   const img2x = `/png/2x/${filename}`;

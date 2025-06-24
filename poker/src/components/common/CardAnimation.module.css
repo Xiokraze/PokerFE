@@ -1,0 +1,82 @@
+.cardContainer {
+  animation-name: slideDealIn;
+  animation-duration: 0.6s;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease;
+  animation-delay: var(--animation-delay, 0ms);
+
+  cursor: pointer;
+  user-select: none;
+
+  background-color: var(--MenuBackground);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  outline: none;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform: translateY(0);
+}
+
+.cardContainer:hover,
+.cardContainer:focus {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.cardContainer:active {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(60%);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.chosenCard {
+  animation: dealPop 0.5s ease forwards;
+  z-index: 10;
+}
+
+.text {
+  text-align: center;
+}
+
+@keyframes slideDealIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-120vw) rotate(-20deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(10px) rotate(10deg);
+  }
+  85% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes dealPop {
+  0% {
+    transform: translateY(0) scale(1) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}

@@ -33,7 +33,7 @@ const FiveCardStud: React.FC = () => {
       };
 
       const response = await fetch('http://localhost:5285/api/play/fiveCardStud', requestOptions);
-      console.log('respnse', response);
+
       if (!response.ok) throw new Error(`API error: ${response.statusText}`);
       const data: ApiResponse = await response.json();
       setResults(data);
