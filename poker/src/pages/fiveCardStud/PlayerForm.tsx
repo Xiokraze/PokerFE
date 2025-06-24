@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import styles from './PlayerForm.module.css';
 import PokerButton from '../../components/button/pokerButton/PokerButton';
 import CardOption from '../../components/playingCard/CardOption';
-import ThemeContext from '../../components/context/ThemeContext';
 
 type PlayerFormProps = {
   onSubmit: (players: string[]) => void;
@@ -11,7 +10,6 @@ type PlayerFormProps = {
 const PlayerForm: React.FC<PlayerFormProps> = ({ onSubmit }) => {
   const [newPlayerName, setNewPlayerName] = useState('');
   const [players, setPlayers] = useState<string[]>([]);
-  const themeCtx = useContext(ThemeContext);
 
   const handleAddPlayer = () => {
     if (newPlayerName.trim() === '') return;
@@ -21,8 +19,8 @@ const PlayerForm: React.FC<PlayerFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inputRow}>
+    <>
+      <div className={styles.grid}>
         <input
           type="text"
           value={newPlayerName}
@@ -52,7 +50,7 @@ const PlayerForm: React.FC<PlayerFormProps> = ({ onSubmit }) => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
