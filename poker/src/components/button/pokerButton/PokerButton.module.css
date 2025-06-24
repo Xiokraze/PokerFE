@@ -9,18 +9,19 @@
   font-size: 1rem;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 0 6px 2px var(--poker-chip-red), inset 0 0 10px 2px #ff4d4d;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 6px 2px var(--poker-chip-red), inset 0 0 10px 2px var(--poker-chip-red);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .pokerButton:hover:not(:disabled) {
-  background-color: #ff5555;
-  box-shadow: 0 0 12px 4px #ff0000, inset 0 0 14px 3px #ff6666;
+  background-color: var(--poker-chip-red);
+  box-shadow: 0 0 12px 4px var(--poker-chip-red), inset 0 0 14px 3px var(--poker-chip-red);
 }
 
 .pokerButton:disabled {
-  opacity: 0.6;
   cursor: not-allowed;
-  box-shadow: none;
-  background-color: #cc6666;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(60%);
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }

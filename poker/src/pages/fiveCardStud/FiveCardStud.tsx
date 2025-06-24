@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PlayerInputForm from './PlayerForm';
+import PokerButton from '../../components/button/pokerButton/PokerButton';
+import FiveCardStudResults from './results/FiveCardStudResults';
 
 type PlayerResult = {
   player: string;
@@ -8,7 +10,7 @@ type PlayerResult = {
   handSummary: string;
 };
 
-type ApiResponse = {
+export type ApiResponse = {
   playerResults: PlayerResult[];
   winners: string[];
   reason: string;
@@ -18,11 +20,17 @@ const FiveCardStud: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<ApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [players, setPlayers] = useState<string[]>([]);
+
+  const handlePlayAgain = () => {
+    setResults(null);
+  };
 
   const handleStartGame = async (players: string[]) => {
     setLoading(true);
     setError(null);
     setResults(null);
+    setPlayers(players); // Save for future use
     try {
       const requestOptions = {
         method: 'POST',
@@ -43,32 +51,14 @@ const FiveCardStud: React.FC = () => {
       setLoading(false);
     }
   };
-  if (loading) return <div>Loading cards... (poker spinner here)</div>;
+  // if (loading) return <div>Loading cards... (poker spinner here)</div>;
   if (error) return <div>Error: {error}</div>;
   if (results)
     return (
-      <div>
-        <h2>Results</h2>
-        <p>{results.reason}</p>
-        {results.playerResults.map(({ player, cards, rank, handSummary }) => (
-          <div key={player}>
-            <h3>{player}</h3>
-            <p>
-              {rank} — {handSummary}
-            </p>
-            <div>
-              {cards.map((card) => (
-                <span key={card} style={{ marginRight: 4 }}>
-                  {card}
-                </span> // Replace with your PlayingCard component!
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <FiveCardStudResults loading={loading} results={results} handlePlayAgain={handlePlayAgain} />
     );
 
-  return <PlayerInputForm onSubmit={handleStartGame} />;
+  return <PlayerInputForm onSubmit={handleStartGame} loading={loading} initialPlayers={players} />;
 };
 
 export default FiveCardStud;
