@@ -1,4 +1,15 @@
-// gameData.ts (or inside GameMenu file)
+/**
+ * Array of game objects used in the GameMenu.
+ * Each game includes:
+ * - id: unique string identifier.
+ * - displayName: title shown to the user.
+ * - description: brief game description.
+ * - cardCode: playing card code used as icon.
+ * - badgeText: optional label indicating status (e.g., "New", "Coming Soon").
+ * - badgeColor: badge label color (hex or CSS color string).
+ * - enabled: whether the game is currently playable/selectable.
+ * - routePath: React Router path for navigation.
+ */
 export const games = [
   {
     id: 'five_card_stud',

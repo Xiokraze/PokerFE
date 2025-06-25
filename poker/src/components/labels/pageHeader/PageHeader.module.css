@@ -1,9 +1,13 @@
+/* ===== PageHeader Styles ===== */
+
+/* Header container centered with spacing below and padding on top */
 .pageHeader {
   text-align: center;
   margin-bottom: 2rem;
   padding-top: 1rem;
 }
 
+/* Main title styling: large, bold, with letter spacing */
 .title {
   font-size: 2.75rem;
   font-weight: 700;
@@ -12,6 +16,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* Subtitle styling: smaller font, centered with max width for readability */
 .subtitle {
   font-size: 1.25rem;
   font-weight: 400;

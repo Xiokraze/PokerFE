@@ -1,3 +1,6 @@
+/* ===== GameMenu Styles ===== */
+
+/* Grid container for game options with responsive columns and spacing */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -7,6 +10,7 @@
   margin: 0 auto;
 }
 
+/* Text wrapper with centered alignment and smooth color transition */
 .text {
   text-align: center;
   margin-top: 0.75rem;
@@ -14,12 +18,14 @@
   transition: color 0.3s ease;
 }
 
+/* Heading style inside text wrapper with spacing and bold font */
 .text h3 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
+/* Paragraph style inside text wrapper with readable line height */
 .text p {
   margin: 0;
   font-size: 0.9rem;

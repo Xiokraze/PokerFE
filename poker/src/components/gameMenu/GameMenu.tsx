@@ -4,6 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { games } from './games';
 import CardOption from '../playingCard/CardOption';
 
+/**
+ * GameMenu component
+ * Displays a grid of game options as card components.
+ * Handles click with visual selection and delays navigation to allow animation.
+ * Uses react-router's useNavigate for route changes.
+ */
 const GameMenu: React.FC = () => {
   const navigate = useNavigate();
   const [clickedId, setClickedId] = useState<string | null>(null);

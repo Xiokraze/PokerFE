@@ -1,3 +1,6 @@
+/* ===== ProjectLabel Styles ===== */
+
+/* Container for Home button positioned top-left with margin */
 .homeButtonDiv {
   position: absolute;
   left: 0;
@@ -5,6 +8,7 @@
   margin: 5px;
 }
 
+/* Container for Theme toggle button positioned top-right with margin */
 .toggleButtonDiv {
   position: absolute;
   right: 0;
@@ -12,34 +16,40 @@
   margin: 5px;
 }
 
+/* Main project label container styled for large font, centered horizontally and vertically,
+   full width, with background color and letter spacing */
 .projectLabel {
-  cursor: default;
+  cursor: default; /* prevent text selection */
   font-size: 44px;
   font-weight: 600;
   letter-spacing: 3px;
   display: flex;
   color: var(--ProjectLabel);
-  width: auto;
   height: 60px;
   margin: 0;
-  justify-content: center; /* horizontal center */
-  align-items: center; /* vertical center */
-  width: 100%; /* optional but good for full centering */
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+  width: 100%; /* full width for perfect center alignment */
   background-color: var(--primary-dark);
 }
 
+/* Non-flickering text parts with minimum width to keep spacing consistent */
 .nonFlickerText {
   min-width: 100px;
   margin: 0;
   padding: 0;
 }
 
+/* Flickering text parts with horizontal spacing and left padding */
 .flickerText {
   margin: 0 3px;
   padding: 0;
   padding-left: 10px;
 }
 
+/* Adds the flickering letter before the flickerText element,
+   using the data-heading attribute for the letter content,
+   colored and animated for neon flicker effect */
 .flickerText::before {
   content: attr(data-heading);
   color: var(--ProjectLabelFlicker);
@@ -47,6 +57,7 @@
   animation: flicker 3s linear infinite;
 }
 
+/* Keyframes for flicker effect toggling opacity and text-shadow to simulate neon flicker */
 @keyframes flicker {
   0%,
   19.999%,
