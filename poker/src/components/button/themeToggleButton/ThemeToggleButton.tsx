@@ -4,18 +4,19 @@ import ThemeContext from '../../context/ThemeContext';
 import { PokerChip } from '../../pokerChip/PokerChip';
 
 const ThemeToggleButton = () => {
-  const themeCtx = useContext(ThemeContext);
+  const themeCTX = useContext(ThemeContext);
 
   const changeThemeHandler = () => {
-    themeCtx.toggleTheme();
+    themeCTX.toggleTheme();
   };
 
   return (
     <div className={styles.togglePointer}>
       <PokerChip
         onClick={changeThemeHandler}
-        icon={<img alt={'theme toggle'} className={styles.themeSVG} src={themeCtx.icon} />}
+        icon={<img alt={'theme toggle'} className={styles.themeSVG} src={themeCTX.icon} />}
         widthAndHeight={50}
+        color={themeCTX.isDarkTheme() ? 'red' : 'blue'}
       />
     </div>
   );
