@@ -1,4 +1,6 @@
 import PokerButton from '../../../components/button/pokerButton/PokerButton';
+import GameResult from '../../../components/containers/gameResult/GameResult';
+import PageHeader from '../../../components/labels/pageHeader/PageHeader';
 import PlayingCard from '../../../components/playingCard/PlayingCard';
 import { ApiResponse } from '../FiveCardStud';
 import styles from './FiveCardStudResults.module.css';
@@ -16,24 +18,9 @@ const FiveCardStudResults: React.FC<FiveCardStudResultsProps> = ({
 }) => {
   return (
     <div className={styles.resultsContainer}>
-      <h2 className={styles.title}>Results</h2>
-      <p className={styles.reason}>{results.reason}</p>
+      <PageHeader title="Results" subtitle={results.reason} />
 
-      <div className={styles.playerResults}>
-        {results.playerResults.map(({ player, cards, rank, handSummary }) => (
-          <div key={player} className={styles.playerCard}>
-            <h3 className={styles.playerName}>{player}</h3>
-            <p className={styles.handSummary}>
-              <span className={styles.rank}>{rank}</span> — {handSummary}
-            </p>
-            <div className={styles.cardRow}>
-              {cards.map((card) => (
-                <PlayingCard key={card} code={card} width={80} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <GameResult playerResults={results.playerResults} />
 
       <PokerButton onClick={() => handlePlayAgain()} disabled={loading} text="Play Again" />
     </div>

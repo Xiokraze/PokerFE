@@ -1,3 +1,10 @@
+.homeButtonDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 5px;
+}
+
 .toggleButtonDiv {
   position: absolute;
   right: 0;

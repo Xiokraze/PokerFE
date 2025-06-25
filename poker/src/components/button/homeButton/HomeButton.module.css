@@ -1,0 +1,9 @@
+.themeSVG {
+  height: auto;
+  width: auto;
+}
+
+.togglePointer {
+  cursor: pointer;
+  width: fit-content;
+}

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PlayerInputForm from './PlayerForm';
-import PokerButton from '../../components/button/pokerButton/PokerButton';
 import FiveCardStudResults from './results/FiveCardStudResults';
 
-type PlayerResult = {
+export type PlayerResult = {
   player: string;
   cards: string[];
   rank: string;

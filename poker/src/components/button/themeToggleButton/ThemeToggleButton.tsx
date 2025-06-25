@@ -3,7 +3,7 @@ import styles from './ThemeToggleButton.module.css';
 import ThemeContext from '../../context/ThemeContext';
 import { PokerChip } from '../../pokerChip/PokerChip';
 
-const NavbarOptionTheme = () => {
+const ThemeToggleButton = () => {
   const themeCtx = useContext(ThemeContext);
 
   const changeThemeHandler = () => {
@@ -21,4 +21,4 @@ const NavbarOptionTheme = () => {
   );
 };
 
-export default NavbarOptionTheme;
+export default ThemeToggleButton;
