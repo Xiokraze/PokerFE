@@ -9,6 +9,7 @@
   font-size: 1rem;
   border-radius: 12px;
   cursor: pointer;
+  min-width: 100px;
   box-shadow: 0 0 6px 2px var(--poker-chip-red), inset 0 0 10px 2px var(--poker-chip-red);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }

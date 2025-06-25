@@ -5,10 +5,10 @@ import styles from './PokerButton.module.css';
 type ButtonProps = {
   text: string;
   onClick?: (...args: any[]) => any;
-  disabled: boolean;
+  disabled?: boolean;
 };
 
-const PokerButton: React.FC<ButtonProps> = ({ text, onClick, disabled }) => {
+const PokerButton: React.FC<ButtonProps> = ({ text, onClick, disabled = false }) => {
   return (
     <button className={styles.pokerButton} onClick={onClick} disabled={disabled}>
       {text}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PlayerInputForm from './PlayerForm';
 import FiveCardStudResults from './results/FiveCardStudResults';
 import PokerLoader from '../../components/pokerLoader/PokerLoader';
+import Error from '../../components/containers/error/Error';
 
 export type PlayerResult = {
   player: string;
@@ -21,6 +22,10 @@ const FiveCardStud: React.FC = () => {
   const [results, setResults] = useState<ApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [players, setPlayers] = useState<string[]>([]);
+
+  const clearError = () => {
+    setError(null);
+  };
 
   const handlePlayAgain = () => {
     setResults(null);
@@ -45,7 +50,10 @@ const FiveCardStud: React.FC = () => {
 
       const response = await fetch('http://localhost:5285/api/play/fiveCardStud', requestOptions);
 
-      if (!response.ok) throw new Error(`API error: ${response.statusText}`);
+      if (!response.ok)
+        throw {
+          message: `API error: ${response.statusText}`,
+        };
       const data: ApiResponse = await response.json();
       setResults(data);
     } catch (err: any) {
@@ -58,15 +66,15 @@ const FiveCardStud: React.FC = () => {
   return (
     <>
       {loading && <PokerLoader />}
-      {error && <div>Error: {error}</div>}
-      {results && (
+      {error && <Error message={error} onClear={() => clearError()} />}
+      {!error && results && (
         <FiveCardStudResults
           loading={loading}
           results={results}
           handlePlayAgain={handlePlayAgain}
         />
       )}
-      {!results && (
+      {!error && !results && (
         <PlayerInputForm onSubmit={handleStartGame} loading={loading} initialPlayers={players} />
       )}
     </>
