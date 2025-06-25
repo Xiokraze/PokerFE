@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PlayerInputForm from './PlayerForm';
 import FiveCardStudResults from './results/FiveCardStudResults';
+import PokerLoader from '../../components/pokerLoader/PokerLoader';
 
 export type PlayerResult = {
   player: string;
@@ -39,6 +40,9 @@ const FiveCardStud: React.FC = () => {
         body: JSON.stringify({ playerNames: players }),
       };
 
+      // Add simulated latency (e.g., 2 seconds)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       const response = await fetch('http://localhost:5285/api/play/fiveCardStud', requestOptions);
 
       if (!response.ok) throw new Error(`API error: ${response.statusText}`);
@@ -50,12 +54,30 @@ const FiveCardStud: React.FC = () => {
       setLoading(false);
     }
   };
+
+  return (
+    <>
+      {loading && <PokerLoader />}
+      {error && <div>Error: {error}</div>}
+      {results && (
+        <FiveCardStudResults
+          loading={loading}
+          results={results}
+          handlePlayAgain={handlePlayAgain}
+        />
+      )}
+      {!results && (
+        <PlayerInputForm onSubmit={handleStartGame} loading={loading} initialPlayers={players} />
+      )}
+    </>
+  );
+
   // if (loading) return <div>Loading cards... (poker spinner here)</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (results)
-    return (
-      <FiveCardStudResults loading={loading} results={results} handlePlayAgain={handlePlayAgain} />
-    );
+  // if (error) return <div>Error: {error}</div>;
+  // if (results)
+  //   return (
+  //     <FiveCardStudResults loading={loading} results={results} handlePlayAgain={handlePlayAgain} />
+  //   );
 
   return <PlayerInputForm onSubmit={handleStartGame} loading={loading} initialPlayers={players} />;
 };
