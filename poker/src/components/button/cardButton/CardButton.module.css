@@ -1,9 +1,10 @@
+/* ===== Button Reset & Interaction ===== */
 .cardButton {
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease; /* subtle lift on hover */
 }
 
 .cardButton:disabled {
@@ -12,24 +13,28 @@
 }
 
 .cardButton:hover:not(:disabled) {
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* hover animation: lift */
 }
 
+/* ===== Card Container ===== */
 .cardWrapper {
-  max-width: 120px; /* or your desired card width */
+  max-width: 120px; /* controls overall card size */
   width: 100%;
   height: auto;
-  position: relative;
+  position: relative; /* needed for absolute overlays */
 }
 
+/* Handles both img or SVG card types */
 .cardWrapper > img,
 .cardWrapper > svg {
   width: auto;
   height: auto;
-  display: block; /* prevents inline gap */
+  display: block; /* remove inline spacing artifacts */
 }
 
-/* Top overlay - label */
+/* ===== Overlays ===== */
+
+/* Top label (usually secondary info like category/type) */
 .topOverlay {
   position: absolute;
   top: 6px;
@@ -39,11 +44,11 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--secondary-dark);
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* contrast enhancement */
+  pointer-events: none; /* prevents capturing clicks */
 }
 
-/* Bottom overlay - primary action */
+/* Bottom label (main action text or call to action) */
 .bottomOverlay {
   position: absolute;
   bottom: 6px;

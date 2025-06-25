@@ -7,6 +7,11 @@ type ErrorProps = {
   onClear: () => void;
 };
 
+/**
+ * Error component
+ * Displays an error message with an "OK" button to clear the error.
+ * Uses role="alert" for accessibility to announce the error to screen readers.
+ */
 const Error: React.FC<ErrorProps> = ({ message, onClear }) => {
   return (
     <div className={styles.errorWrapper} role="alert">

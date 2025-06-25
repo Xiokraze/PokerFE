@@ -10,6 +10,11 @@ type CardButtonProps = {
   disabled?: boolean;
 };
 
+/**
+ * CardButton renders a stylized button with a face-down playing card.
+ * Optionally overlays text above and below the card for labeling or prompts.
+ * Typically used as a game action button or to represent a "mystery" choice.
+ */
 const CardButton: React.FC<CardButtonProps> = ({
   onClick,
   text = '',

@@ -1,4 +1,4 @@
-/* Button.module.css */
+/* ===== PokerButton Styles ===== */
 
 .pokerButton {
   background-color: var(--poker-chip-red);
@@ -10,12 +10,16 @@
   border-radius: 12px;
   cursor: pointer;
   min-width: 100px;
+
+  /* Outer + inner glow to mimic illuminated poker chip feel */
   box-shadow: 0 0 6px 2px var(--poker-chip-red), inset 0 0 10px 2px var(--poker-chip-red);
+
   transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .pokerButton:hover:not(:disabled) {
   background-color: var(--poker-chip-red);
+  /* Enhance the glow on hover */
   box-shadow: 0 0 12px 4px var(--poker-chip-red), inset 0 0 14px 3px var(--poker-chip-red);
 }
 
@@ -23,6 +27,9 @@
   cursor: not-allowed;
   opacity: 0.5;
   pointer-events: none;
+
+  /* Dim and desaturate the chip to indicate disabled state */
   filter: grayscale(60%);
+
   transition: filter 0.3s ease, opacity 0.3s ease;
 }

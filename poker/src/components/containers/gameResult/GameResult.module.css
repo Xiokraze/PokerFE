@@ -1,3 +1,6 @@
+/* ===== GameResult Component Styles ===== */
+
+/* Container holding all player result cards stacked vertically with spacing */
 .playerResults {
   display: flex;
   flex-direction: column;
@@ -5,8 +8,8 @@
   margin-bottom: 2rem;
 }
 
+/* Individual player card with background, padding, rounded corners, and inset shadow */
 .playerCard {
-  background-color: rgba(255, 255, 255, 0.05);
   background-color: var(--MenuBackground);
   padding: 1rem;
   border-radius: 10px;
@@ -14,25 +17,28 @@
   padding-top: 0;
 }
 
+/* Player name styling with size, weight, padding, and highlight color */
 .playerName {
   font-size: 1.25rem;
   font-weight: 600;
-  /* margin-bottom: 0.25rem; */
   padding: 0.25em;
   color: var(--secondary-light);
 }
 
+/* Hand summary text styling with size and color */
 .handSummary {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: var(--secondary-light);
 }
 
+/* Rank text styled bold and with highlight color (default gold) */
 .rank {
   font-weight: bold;
   color: var(--highlight-color, gold);
 }
 
+/* Row of playing cards aligned center with spacing and wrapping */
 .cardRow {
   display: flex;
   justify-content: center;

@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './FooterTicker.module.css';
 
+/**
+ * FooterTicker component
+ * Displays a continuously scrolling ticker with author contact info.
+ * Uses duplicate text spans to create seamless horizontal scrolling effect via CSS.
+ */
 const FooterTicker: React.FC = () => {
   const text = (
     <>

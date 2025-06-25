@@ -1,3 +1,6 @@
+/* ===== Error Component Styles ===== */
+
+/* Wrapper fixed near top center with slide-down fade animation */
 .errorWrapper {
   position: fixed;
   top: 25%;
@@ -17,6 +20,7 @@
   animation: slideDownFade 0.4s ease-out;
 }
 
+/* Inner box arranging message and button vertically with spacing */
 .errorBox {
   display: flex;
   align-items: center;
@@ -26,12 +30,14 @@
   gap: 1rem;
 }
 
+/* Error message text styling with word break */
 .message {
   font-size: 0.95rem;
   font-weight: 500;
   word-break: break-word;
 }
 
+/* Button styled as text link for dismissing error */
 .dismissButton {
   background: none;
   border: none;
@@ -44,10 +50,12 @@
   transition: opacity 0.2s ease;
 }
 
+/* Hover state for dismiss button to indicate interactivity */
 .dismissButton:hover {
   opacity: 0.75;
 }
 
+/* Slide down and fade-in animation for error wrapper */
 @keyframes slideDownFade {
   from {
     transform: translateX(-50%) translateY(-20px);

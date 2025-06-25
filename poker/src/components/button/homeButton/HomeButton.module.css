@@ -1,9 +1,13 @@
+/* ===== HomeButton Styles ===== */
+
+/* Ensures SVG scales naturally without distortion */
 .themeSVG {
   height: auto;
   width: auto;
 }
 
+/* Wraps the poker chip to ensure it shows a pointer and doesn't stretch */
 .togglePointer {
   cursor: pointer;
-  width: fit-content;
+  width: fit-content; /* prevents full-width stretching */
 }

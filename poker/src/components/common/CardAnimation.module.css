@@ -1,3 +1,6 @@
+/* ===== Card Styles ===== */
+
+/* Container for each card with slide-in animation and interactive styles */
 .cardContainer {
   animation-name: slideDealIn;
   animation-duration: 0.6s;
@@ -21,6 +24,7 @@
   transform: translateY(0);
 }
 
+/* Hover and focus effects for card elevation and scaling */
 .cardContainer:hover,
 .cardContainer:focus {
   transform: translateY(-8px) scale(1.05);
@@ -28,12 +32,14 @@
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
+/* Active (pressed) state for subtle scale and shadow change */
 .cardContainer:active {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
+/* Disabled state with desaturation and no pointer events */
 .disabled {
   cursor: not-allowed;
   opacity: 0.5;
@@ -42,15 +48,20 @@
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
+/* Animation applied to the selected card for pop effect */
 .chosenCard {
   animation: dealPop 0.5s ease forwards;
   z-index: 10;
 }
 
+/* Centers text content inside the card */
 .text {
   text-align: center;
 }
 
+/* ===== Animations ===== */
+
+/* Slide-in animation from left with rotation easing */
 @keyframes slideDealIn {
   0% {
     opacity: 0;
@@ -69,6 +80,7 @@
   }
 }
 
+/* Pop animation for chosen card: scale up and slight rotation */
 @keyframes dealPop {
   0% {
     transform: translateY(0) scale(1) rotate(0);

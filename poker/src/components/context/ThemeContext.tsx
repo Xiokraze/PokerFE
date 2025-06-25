@@ -8,6 +8,13 @@ export enum Theme {
   PokerTheme = 'PokerTheme',
 }
 
+/**
+ * ThemeContext provides theme state and toggling functionality.
+ * - Persists theme in localStorage under 'PokerTheme' key.
+ * - Applies/removes CSS class for light theme on document.body.
+ * - Exposes toggle, forceLight, currentTheme, and isDark helpers.
+ * - Updates theme icon (sun/moon) based on current theme.
+ */
 const ThemeContext = React.createContext({
   dark: Theme.Dark,
   light: Theme.Light,
@@ -35,7 +42,6 @@ export const ThemeContextProvider = ({ children }: TThemeProps): JSX.Element => 
   }, [theme]);
 
   const toggleTheme = (): void => {
-    //let currentTheme = localStorage.getItem(AppStorage.Theme);
     setTheme(savedTheme === Theme.Light ? Theme.Dark : Theme.Light);
   };
 

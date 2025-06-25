@@ -1,3 +1,6 @@
+/* ===== FooterTicker Styles ===== */
+
+/* Fixed footer bar spanning full width with background and subtle shadow */
 .footer {
   position: fixed;
   bottom: 0;
@@ -12,32 +15,35 @@
   overflow: hidden;
 }
 
+/* Container that hides overflowing text to create ticker viewport */
 .ticker {
   width: 100vw; /* visible viewport width */
   overflow: hidden;
   white-space: nowrap;
 }
 
+/* Track containing duplicated text spans, animated to scroll left infinitely */
 .tickerTrack {
   display: flex;
-  width: 200%;
+  width: 200%; /* double width to allow seamless looping */
   animation: scrollLeft 15s linear infinite;
-  /* Pause animation on hover */
-  animation-play-state: running;
+  animation-play-state: running; /* running by default */
 }
 
+/* Pause scroll animation and enable text selection on hover */
 .ticker:hover .tickerTrack {
   animation-play-state: paused;
-  /* Allow text selection on hover */
   user-select: text;
 }
 
+/* Each ticker text span takes half width with spacing and red color */
 .tickerText {
   flex: 0 0 50%; /* each span takes half the width */
   padding-right: 2rem;
   color: red;
 }
 
+/* Scroll left keyframes move track from 0% to -50% for seamless scroll */
 @keyframes scrollLeft {
   0% {
     transform: translateX(0%);
