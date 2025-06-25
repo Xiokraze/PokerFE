@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Five-Card Stud Poker – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React-based frontend for the Five-Card Stud Poker take-home project. It provides a clean, responsive UI for simulating poker rounds, interacting with the backend API to display hands, evaluate results, and highlight winners.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🧠 Game Menu to select poker games (currently Five-Card Stud)
+- 👤 Player Form with dynamic player addition
+- 🃏 Card-based UI with themed poker card visuals and animations
+- 🪄 Animated transitions for dealing cards and loading indicators
+- ♿ Accessibility features including keyboard navigation and semantic HTML
+- 💅 Light/dark theme support with context API
+- 🔁 Full game flow: add players → deal cards → show results → play again
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React with TypeScript
+- CSS Modules for scoped styling
+- Context API for theming
+- Fetch API for backend communication
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup
 
-### `npm test`
+```bash
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Make sure the backend API is running at http://localhost:5285 or update the API URL accordingly.
 
-### `npm run build`
+## Folder Structure Highlights
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- components/: Reusable UI elements like PlayingCard, PokerButton, and PokerLoader
+- pages/: Main game logic and screens (e.g., FiveCardStud)
+- context/: Theme and other React contexts
+- styles/: CSS Modules and global styles
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Future Enhancements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Support for more poker variants and game modes
+- Multiplayer or turn-based gameplay
+- More animations and audio effects
+- Enhanced accessibility and validation
 
-### `npm run eject`
+## Related Project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This frontend pairs with the backend API in the Poker Backend Repo: https://github.com/Xiokraze/PokerBE
