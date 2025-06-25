@@ -1,20 +1,26 @@
+/* ===== SplashPage Styles ===== */
+
+/* Container for splash page content, centered text with padding */
 .splash-page {
   text-align: center;
   padding: 3rem 1rem;
   color: var(--color-text);
 }
 
+/* Large header styling */
 .splash-page h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
 }
 
+/* Subtitle style, muted color and spacing */
 .subtitle {
   font-size: 1.25rem;
   color: var(--color-muted);
   margin-bottom: 2rem;
 }
 
+/* Grid layout for game menu with responsive columns */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -23,6 +29,13 @@
   margin: 0 auto;
 }
 
+/*
+ * Keyframes for chip bounce and rolling off-screen animation:
+ * - Starts off-screen left and invisible
+ * - Bounces in with rotation
+ * - Settles briefly
+ * - Rolls off to right side with multiple rotations and fades out
+ */
 @keyframes bounceRollAway {
   0% {
     transform: translateX(-150%) rotate(0deg);
@@ -53,15 +66,22 @@
 
   100% {
     transform: translateX(120vw) rotate(720deg);
-    opacity: 0; /* fade out only at the very end */
+    opacity: 0; /* fades out only at animation end */
   }
 }
 
+/*
+ * Container for each animated chip:
+ * - Fixed positioning allows independent movement across screen
+ * - Starts invisible until animation triggers
+ * - Pointer events disabled to avoid blocking UI
+ * - High z-index to appear on top during animation
+ */
 .bounceRollAnimation {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0; /* Hide until animation kicks in */
+  opacity: 0; /* Hidden until animation starts */
   animation: bounceRollAway 3s ease-in-out forwards;
   pointer-events: none;
   z-index: 999;

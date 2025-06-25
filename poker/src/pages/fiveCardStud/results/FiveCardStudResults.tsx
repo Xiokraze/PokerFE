@@ -10,6 +10,18 @@ type FiveCardStudResultsProps = {
   results: ApiResponse;
 };
 
+/**
+ * FiveCardStudResults component
+ *
+ * Displays the results of a Five Card Stud poker game.
+ * Shows a page header with the results reason, the detailed player results,
+ * and a button to play again.
+ *
+ * Props:
+ * - loading: boolean indicating if the play again action is in progress (disables button)
+ * - handlePlayAgain: callback function triggered when user clicks "Play Again"
+ * - results: API response containing the reason string and array of player results
+ */
 const FiveCardStudResults: React.FC<FiveCardStudResultsProps> = ({
   loading,
   handlePlayAgain,

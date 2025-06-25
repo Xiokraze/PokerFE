@@ -1,4 +1,6 @@
 /* ====== 1. Reset ====== */
+/* Apply box-sizing border-box to all elements including pseudo-elements for predictable sizing.
+   Remove all default margin and padding to ensure consistent layout across browsers. */
 *,
 *::before,
 *::after {
@@ -8,58 +10,62 @@
 }
 
 /* ====== 2. Theme Variables ====== */
+/* Define CSS custom properties for colors, fonts, backgrounds, and project-specific styling.
+   These variables enable easy theming and consistency across the app. */
 :root {
   /* Background */
-  --felt-bg: url('./assets/pokerfelt.jpg');
-  --primary-dark: black;
-  --secondary-dark: #2b2929;
-  --color-text: white;
-  --poker-chip-red: #7a0000;
-  --felt-color: #35654d; /*Poker felt green */
-  --color-muted: #aaa;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --poker-chip-accent: black;
+  --felt-bg: url('./assets/pokerfelt.jpg'); /* Poker felt texture for background */
+  --primary-dark: black; /* Dark primary color */
+  --secondary-dark: #2b2929; /* Secondary dark shade */
+  --color-text: white; /* Default text color for dark theme */
+  --poker-chip-red: #7a0000; /* Signature poker chip red */
+  --felt-color: #35654d; /* Green felt color */
+  --color-muted: #aaa; /* Muted text color */
+  --font-body: 'Inter', system-ui, sans-serif; /* Base font stack */
+  --poker-chip-accent: black; /* Accent color for poker chips */
 
-  --background: var(--felt-color);
+  --background: var(--felt-color); /* Background color defaulting to felt green */
 
-  /* Project Label */
+  /* Project Label colors */
   --ProjectLabel: white;
   --ProjectLabelFlicker: var(--poker-chip-red);
   --ProjectFilterShadow1: white;
   --ProjectFilterShadow2: var(--poker-chip-red);
 
-  --MenuBackground: var(--secondary-dark);
+  --MenuBackground: var(--secondary-dark); /* Background color for menus */
 }
 
 /* ====== 4. Global Base Styles ====== */
+/* Base styling applied globally for body */
 body {
-  min-width: 320px !important; /*Smallest device width in browser dev tools (iphone 5/SE)*/
-  font-family: var(--font-body);
-  background-image: var(--felt-bg);
-  background-repeat: repeat;
-  background-size: auto;
+  min-width: 320px !important; /* Minimum width matches smallest common device (iPhone 5/SE) */
+  font-family: var(--font-body); /* Use font variable */
+  background-image: var(--felt-bg); /* Apply poker felt texture background */
+  background-repeat: repeat; /* Repeat texture */
+  background-size: auto; /* Use native image size */
 
-  color: var(--color-text);
-  line-height: 1.6;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  color: var(--color-text); /* Text color from variable */
+  line-height: 1.6; /* Comfortable reading line height */
+  min-height: 100vh; /* Ensure body always fills viewport height */
+  -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit browsers */
+  text-rendering: optimizeLegibility; /* Improve text rendering */
 }
 
-/* Light Theme */
+/* ====== Light Theme Overrides ====== */
+/* Light theme overrides for variables when .light class applied */
 .light {
-  --color-text: black;
+  --color-text: black; /* Dark text for light backgrounds */
   --color-muted: #aaa;
   --font-body: 'Inter', system-ui, sans-serif;
   --poker-chip-accent: white;
 
-  --background: snow;
+  --background: snow; /* Light background */
 
-  /* Project Label */
+  /* Project Label colors stay consistent with poker chip theme */
   --ProjectLabel: white;
   --ProjectLabelFlicker: var(--poker-chip-red);
   --ProjectFilterShadow1: white;
   --ProjectFilterShadow2: var(--poker-chip-red);
 
-  --MenuBackground: snow;
+  --MenuBackground: snow; /* Light background for menus */
 }

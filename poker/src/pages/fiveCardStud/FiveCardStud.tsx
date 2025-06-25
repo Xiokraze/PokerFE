@@ -17,6 +17,20 @@ export type ApiResponse = {
   reason: string;
 };
 
+/**
+ * FiveCardStud
+ *
+ * Main component managing the Five Card Stud poker game flow.
+ *
+ * - Handles player input submission and calls the backend API to play the game.
+ * - Manages loading, error, and result states.
+ * - Shows a loading spinner (PokerLoader) during async calls.
+ * - Displays errors using the Error component.
+ * - Displays game results with FiveCardStudResults component.
+ * - Allows replaying the game by resetting results.
+ *
+ * Uses internal state to store players, results, loading status, and error messages.
+ */
 const FiveCardStud: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<ApiResponse | null>(null);
@@ -35,7 +49,10 @@ const FiveCardStud: React.FC = () => {
     setLoading(true);
     setError(null);
     setResults(null);
-    setPlayers(players); // Save for future use
+
+    // Save players locally for pre-filling input on replay
+    setPlayers(players);
+
     try {
       const requestOptions = {
         method: 'POST',
@@ -45,11 +62,12 @@ const FiveCardStud: React.FC = () => {
         body: JSON.stringify({ playerNames: players }),
       };
 
-      // Add simulated latency (e.g., 2 seconds)
+      // Simulated latency before API call to mimic realistic wait time
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       const response = await fetch('http://localhost:5285/api/play/fiveCardStud', requestOptions);
 
+      // Throws an error if API response is not ok, triggering the catch block
       if (!response.ok)
         throw {
           message: `API error: ${response.statusText}`,
@@ -79,15 +97,6 @@ const FiveCardStud: React.FC = () => {
       )}
     </>
   );
-
-  // if (loading) return <div>Loading cards... (poker spinner here)</div>;
-  // if (error) return <div>Error: {error}</div>;
-  // if (results)
-  //   return (
-  //     <FiveCardStudResults loading={loading} results={results} handlePlayAgain={handlePlayAgain} />
-  //   );
-
-  return <PlayerInputForm onSubmit={handleStartGame} loading={loading} initialPlayers={players} />;
 };
 
 export default FiveCardStud;

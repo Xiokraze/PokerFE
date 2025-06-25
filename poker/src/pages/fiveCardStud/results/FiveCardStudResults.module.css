@@ -1,3 +1,11 @@
+/* ===== FiveCardStudResults Container Styles ===== */
+
+/*
+  Centers the results container on the page with a max width of 960px,
+  adds padding for spacing inside, and aligns text to the center.
+  Width is set to fit-content to shrink-wrap the content horizontally.
+  Top margin and padding are reset to zero to override any defaults.
+*/
 .resultsContainer {
   max-width: 960px;
   margin: 2rem auto;

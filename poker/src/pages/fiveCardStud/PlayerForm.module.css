@@ -1,13 +1,18 @@
+/* ===== PlayerForm Styles ===== */
+
+/* Adds bottom padding to avoid overlap with fixed footer or other UI */
 .pageWrapper {
   padding-bottom: 100px;
 }
 
+/* Wrapper centers the content with max width and padding */
 .wrapper {
   padding: 2rem;
   max-width: 720px;
   margin: 0 auto;
 }
 
+/* Flex container for inputs and buttons, horizontally spaced and vertically centered */
 .inputRow {
   display: flex;
   gap: 1rem;
@@ -15,6 +20,7 @@
   align-items: center;
 }
 
+/* Styled input field with padding, border, rounded corners, and box-shadow for depth */
 .input {
   padding: 0.6rem 1rem;
   border: 2px solid var(--primary-dark);
@@ -29,21 +35,24 @@
   outline: none;
 }
 
+/* On focus, input border and background change with a glowing shadow for emphasis */
 .input:focus {
   border-color: var(--poker-chip-red);
   background-color: var(--primary-dark);
   box-shadow: 0 0 10px var(--poker-chip-red);
 }
 
+/* Placeholder text styled to be italic and lighter color */
 .input::placeholder {
   color: #aaa;
   font-style: italic;
 }
 
+/* Flex container to hold cards; wraps and centers content horizontally with gaps */
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* center items horizontally */
+  justify-content: center; /* centers items horizontally */
   gap: 1.25rem;
   padding: 2rem;
   max-width: 960px;
@@ -51,11 +60,12 @@
   box-sizing: border-box;
 }
 
+/* CSS Grid for input controls, responsive with minimum column width and spacing */
 .inputGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.25rem;
   padding: 2rem;
   margin: 0 auto;
-  width: fit-content;
+  width: fit-content; /* limits width to content size */
 }
