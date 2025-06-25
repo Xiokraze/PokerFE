@@ -10,6 +10,20 @@ interface PokerChipProps {
   icon?: React.ReactNode;
 }
 
+/**
+ * PokerChip component
+ * Renders a circular poker chip with customizable size, color, and center content.
+ * Center content can be an icon (ReactNode), text string, or numeric value.
+ * Supports optional onClick handler for interactivity.
+ *
+ * Props:
+ * - widthAndHeight: size of the chip in pixels (square), default 120
+ * - color: chip color, restricted to a predefined set of strings
+ * - value: numeric or string value shown at the center if no icon/text provided
+ * - text: string displayed at the center (used if icon not provided)
+ * - onClick: optional click handler function
+ * - icon: ReactNode to display at center instead of text/value
+ */
 export const PokerChip: React.FC<PokerChipProps> = ({
   widthAndHeight = 120,
   color = 'red',

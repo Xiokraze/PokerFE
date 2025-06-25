@@ -1,15 +1,21 @@
+/* ===== PlayingCard Styles ===== */
+
 .card {
   border: 2px solid black;
   width: 30px;
   height: 50px;
 }
 
+/* Wrapper container controlling card width (inline style) and positioning for badge */
 .cardWrapper {
   /* width is controlled inline */
   position: relative;
   display: inline-block;
 }
 
+/* Badge positioned in the top-right corner of the card
+   with small padding, rounded corners, uppercase text,
+   white text on colored background, and subtle shadow */
 .badge {
   position: absolute;
   top: 6px;
@@ -21,7 +27,7 @@
   color: white;
   text-transform: uppercase;
   user-select: none;
-  pointer-events: none;
+  pointer-events: none; /* prevents interaction with badge */
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-  z-index: 10;
+  z-index: 10; /* ensures badge appears above the card image */
 }

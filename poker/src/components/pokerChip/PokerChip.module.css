@@ -1,3 +1,6 @@
+/* ===== PokerChip Styles ===== */
+
+/* Base chip style: circular shape with inset and drop shadows for depth */
 .pokerChip {
   border-radius: 50%;
   position: relative;
@@ -6,10 +9,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 100px;
-  height: 100px;
+  width: 100px; /* default size, overridden inline */
+  height: 100px; /* default size, overridden inline */
 }
 
+/* Decorative stripes on chip using repeating conic gradient,
+   masked with radial gradient for a subtle fade effect */
 .pokerChip::before {
   content: '';
   position: absolute;
@@ -20,6 +25,7 @@
   mask: radial-gradient(circle at center, transparent 60%, black 70%);
 }
 
+/* Inner ring on chip to add visual layering */
 .pokerChip::after {
   content: '';
   position: absolute;
@@ -30,13 +36,14 @@
   z-index: 2;
 }
 
+/* Center content container: horizontally & vertically centered text/icon,
+   with bold font and subtle shadows for contrast */
 .chipCenter {
-  /* z-index: 3; */
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center; /* vertical center */
-  height: 100%; /* make sure it fills container */
-  width: 100%; /* optional but good for full centering */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   font-size: 28px;
   font-weight: 900;
   text-align: center;
@@ -45,7 +52,7 @@
   text-shadow: 1px 1px 0 #00000066, -1px -1px 0 #ffffff22;
 }
 
-/* Color variants */
+/* Color variants: background colors for different chip colors */
 .red {
   background: #7a0000;
 }
@@ -67,7 +74,6 @@
 .yellow {
   background: yellow;
 }
-
 .white {
   background: white;
 }
